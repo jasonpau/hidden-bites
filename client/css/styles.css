@@ -20,6 +20,8 @@ p {
   max-width: 400px;
   margin: 20px auto;
   display: none;
+  -webkit-transition: opacity 1s ease-out;
+  -o-transition: opacity 1s ease-out;
   transition: opacity 1s ease-out;
 }
 
@@ -95,6 +97,7 @@ h3 {
   width: 100%;
   margin: 0;
   background: url('../img/loading.gif') no-repeat center;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding-top: 65px;
 }
@@ -186,11 +189,17 @@ li {
 }
 
 ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 30vmin;
   margin-top: 2vh;
   margin-bottom: 10px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
   flex-flow: column wrap;
+  -ms-flex-line-pack: stretch;
   align-content: stretch;
 }
 
