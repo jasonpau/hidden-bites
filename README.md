@@ -1,4 +1,4 @@
-# Hole in the Wall Restaurant Finder
+# Hidden Bites - Hole in the Wall Restaurant Finder
 
 This app allows users to quickly find hole-in-the-wall restaurants based on a specified food category. A specific location can be searched if desired; otherwise the search results default to the user's current location.
 
