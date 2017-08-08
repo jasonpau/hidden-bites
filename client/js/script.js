@@ -97,7 +97,8 @@ function runSearch() {
 }
 
 /**
- * removeDuplicateLocations - removes the
+ * removeDuplicateLocations - removes restaurants that have coordinates that match already existing locations
+ * (the coordinates received back from Yelp aren't always perfectly unique)
  * @param {array} arr - array of restaurant objects
  * @return {array} returnArray - cleaned up array of restaurant objects
  */
@@ -189,7 +190,7 @@ function showErrorModal(message) {
 }
 
 /**
- * initMap - initialize map object and set up markers
+ * initMap - initialize map object and set up restaurant markers
  */
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
@@ -241,9 +242,10 @@ function getCenterForMap(restaurants) {
     totalLat += restaurants[i].coordinates.latitude;
     totalLng += restaurants[i].coordinates.longitude;
   }
-  totalLat /= restaurants.length;
-  totalLng /= restaurants.length;
-  return {lat: totalLat, lng: totalLng};
+  return {
+    lat: totalLat /= restaurants.length,
+    lng: totalLng /= restaurants.length
+  };
 }
 
 /**
