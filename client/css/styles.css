@@ -32,7 +32,7 @@ p {
   display: inline-block;
   position: absolute;
   z-index: 2;
-  background: white url('../img/background.jpg') no-repeat center;
+  background: #3e3430 url('../img/background.jpg') no-repeat center;
   background-size: cover;
   height: 100%;
   width: 100%;
