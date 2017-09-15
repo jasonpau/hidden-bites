@@ -43,6 +43,7 @@ var map;
 function setUpClickHandlers() {
   $('#button-search').click(searchClicked);
   $('#back-to-front').click(startNewSearch);
+  $('#get-location').click(getCurrentLocation);
 }
 
 function searchClicked() {
@@ -351,7 +352,7 @@ function getAddressFromCoords() {
 $(document).ready(function() {
   new google.maps.places.Autocomplete(document.getElementById('input-location'));
   setUpClickHandlers();
-  getCurrentLocation();
+  //getCurrentLocation();
 });
 
 /**
