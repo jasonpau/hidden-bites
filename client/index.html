@@ -20,17 +20,22 @@
 <div class="main-container">
   <!-- initial screen that takes the user input -->
   <div class="search-container">
-    <img id="logo" src="img/hidden-bites.png" height="190" width="300"/>
+    <img id="logo" src="img/hidden-bites.png" alt="Hidden Bites" height="190" width="300"/>
     <p class="intro-text">Tired of your regular restaurant chain?<br/>
       Time to find your own hole in the wall!</p>
-    <form class="" id="search-form">
+    <form id="search-form">
       <div class="form-group col-xs-12">
         <input class="form-control input-lg front-input" id="input-food" type="text" name="typeOfFood"
-               placeholder="Type of food I want...">
+               placeholder="Type of food I want..." aria-label="Type of food I want">
       </div>
       <div class="form-group col-xs-12">
-        <input class="form-control input-lg front-input " id="input-location" type="text" name="address"
-               placeholder="Location I'm going...">
+        <div class="input-group front-input">
+          <input class="form-control input-lg" id="input-location" type="text" name="address"
+                 placeholder="Location I'm going..." aria-label="Location I'm going">
+          <span class="input-group-btn">
+            <button class="btn btn-info btn-lg" id="get-location">Nearby</button>
+          </span>
+        </div>
       </div>
       <div id="alert-location" class="alert alert-danger" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
@@ -43,7 +48,7 @@
   <!-- result/map area - show this when the search button is clicked -->
   <div class="results">
     <div id="map-header">
-      <button id="back-to-front" class="glyphicon glyphicon-chevron-left"></button>
+      <button id="back-to-front" class="glyphicon glyphicon-chevron-left" aria-label="New Search"></button>
       <h3 class="map-title"><span id="map-title-primary">Loading...</span><span id="map-title-extra"></span></h3>
     </div>
     <div id="map">
@@ -58,7 +63,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"></h4>
+        <h4 class="modal-title">Loading...</h4>
       </div>
       <div class="modal-body">
         <p></p>
