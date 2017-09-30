@@ -5,10 +5,7 @@
 var app = {
   restaurants: [],
   searchTerm: 'hole in the wall ',
-  userLocation: {
-    lat: 33.634910999999995,
-    lng: -117.7404998
-  },
+  userLocation: {},
   searchLocation: this.userLocation,
   commonCategories: [
     'Thai',
@@ -306,27 +303,33 @@ function formatYelpAddress(address) {
 }
 
 /**
- * getLocation - Get the user's current location using the HTML5 geolocation API,
- * and pass it in object form to the savePosition function
+ * getLocation - Get the user's current location using the HTML5 geolocation API
  */
 function getCurrentLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(savePosition);
+    navigator.geolocation.getCurrentPosition(positionSuccess, positionError);
   } else {
     showErrorModal('Geolocation is not supported by this browser.');
   }
 }
 
 /**
- * savePosition - Takes the position object and saves the lat/lng coords to the user location property
+ * positionSuccess - Callback function that accepts the position object and saves the lat/lng coords to the user location property
  * @param {object} position
  */
-function savePosition(position) {
+function positionSuccess(position) {
   app.userLocation = {
     lat: position.coords.latitude,
     lng: position.coords.longitude
   };
   getAddressFromCoords();
+}
+
+/**
+ * positionError - Callback function that accepts an optional error object
+ */
+function positionError() {
+  showErrorModal('It seems we couldn\'t obtain your current location.');
 }
 
 /**
@@ -352,7 +355,6 @@ function getAddressFromCoords() {
 $(document).ready(function() {
   new google.maps.places.Autocomplete(document.getElementById('input-location'));
   setUpClickHandlers();
-  //getCurrentLocation();
 });
 
 /**
